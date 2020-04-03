@@ -7397,9 +7397,10 @@ type ProfileStatusExtension struct {
 }
 
 // OSDReference type
-type OSDReference struct {
-	Value ReferenceToken
-}
+//type OSDReference struct {
+//	Value ReferenceToken
+//}
+type OSDReference ReferenceToken
 
 // OSDPosConfiguration type
 type OSDPosConfiguration struct {
