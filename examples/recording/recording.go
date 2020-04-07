@@ -6,8 +6,8 @@ import (
 	"time"
 
 	"github.com/kr/pretty"
-	"github.com/videonext/onvif/profiles/recording"
-	"github.com/videonext/onvif/soap"
+	"github.com/song01/onvif/profiles/recording"
+	"github.com/song01/onvif/soap"
 )
 
 func main() {
