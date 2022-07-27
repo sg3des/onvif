@@ -1,4 +1,4 @@
-module github.com/song01/onvif
+module github.com/sg3des/onvif
 
 go 1.12
 

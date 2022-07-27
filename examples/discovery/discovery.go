@@ -6,9 +6,9 @@ import (
 	"time"
 
 	"github.com/kr/pretty"
-	"github.com/song01/onvif/discovery"
-	"github.com/song01/onvif/profiles/devicemgmt"
-	"github.com/song01/onvif/soap"
+	"github.com/sg3des/onvif/discovery"
+	"github.com/sg3des/onvif/profiles/devicemgmt"
+	"github.com/sg3des/onvif/soap"
 )
 
 func main() {

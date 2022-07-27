@@ -5,7 +5,7 @@ import (
 	"encoding/xml"
 	"time"
 
-	"github.com/song01/onvif/soap"
+	"github.com/sg3des/onvif/soap"
 )
 
 // against "unused imports"
@@ -4143,16 +4143,16 @@ type AudioDecoderConfigurationOptionsExtension struct {
 type MulticastConfiguration struct {
 
 	// The multicast address (if this address is set to 0 no multicast streaming is enaled)
-	Address IPAddress `xml:"http://www.onvif.org/ver10/schema Address,omitempty"`
+	Address IPAddress `xml:"http://www.onvif.org/ver10/schema Address"`
 
 	// The RTP mutlicast destination port. A device may support RTCP. In this case the port value shall be even to allow the corresponding RTCP stream to be mapped to the next higher (odd) destination port number as defined in the RTSP specification.
-	Port int32 `xml:"http://www.onvif.org/ver10/schema Port,omitempty"`
+	Port int32 `xml:"http://www.onvif.org/ver10/schema Port"`
 
 	// In case of IPv6 the TTL value is assumed as the hop limit. Note that for IPV6 and administratively scoped IPv4 multicast the primary use for hop limit / TTL is to prevent packets from (endlessly) circulating and not limiting scope. In these cases the address contains the scope.
-	TTL int32 `xml:"http://www.onvif.org/ver10/schema TTL,omitempty"`
+	TTL int32 `xml:"http://www.onvif.org/ver10/schema TTL"`
 
 	// Read only property signalling that streaming is persistant. Use the methods StartMulticastStreaming and StopMulticastStreaming to switch its state.
-	AutoStart bool `xml:"http://www.onvif.org/ver10/media/wsdl AutoStart,omitempty"`
+	AutoStart bool `xml:"http://www.onvif.org/ver10/media/wsdl AutoStart"`
 }
 
 // StreamSetup type

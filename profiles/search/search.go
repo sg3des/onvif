@@ -5,7 +5,7 @@ import (
 	"encoding/xml"
 	"time"
 
-	"github.com/song01/onvif/soap"
+	"github.com/sg3des/onvif/soap"
 )
 
 // against "unused imports"
