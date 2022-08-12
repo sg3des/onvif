@@ -3558,7 +3558,7 @@ type RotateOptions struct {
 	// After setting the rotation, if a device starts to reboot this value is true.
 	// If a device can handle rotation setting without rebooting this value is false.
 
-	Reboot bool `xml:"http://www.onvif.org/ver10/media/wsdl Reboot,attr,omitempty"`
+	Reboot bool `xml:"http://www.onvif.org/ver10/media/wsdl Reboot,attr"`
 }
 
 // RotateOptionsExtension type
@@ -3571,14 +3571,14 @@ type SceneOrientation struct {
 	//
 	// Parameter to assign the way the camera determines the scene orientation.
 	//
-	Mode SceneOrientationMode `xml:"http://www.onvif.org/ver10/schema Mode,omitempty"`
+	Mode SceneOrientationMode `xml:"http://www.onvif.org/ver10/schema Mode"`
 
 	//
 	// Assigned or determined scene orientation based on the Mode. When assigning the Mode to AUTO, this field
 	// is optional and will be ignored by the device. When assigning the Mode to MANUAL, this field is required
 	// and the device will return an InvalidArgs fault if missing.
 	//
-	Orientation string `xml:"http://www.onvif.org/ver10/schema Orientation,omitempty"`
+	Orientation string `xml:"http://www.onvif.org/ver10/schema Orientation"`
 }
 
 // VideoEncoderConfiguration type
@@ -3586,28 +3586,28 @@ type VideoEncoderConfiguration struct {
 	*ConfigurationEntity
 
 	// Used video codec, either Jpeg, H.264 or Mpeg4
-	Encoding VideoEncoding `xml:"http://www.onvif.org/ver10/schema Encoding,omitempty"`
+	Encoding VideoEncoding `xml:"http://www.onvif.org/ver10/schema Encoding"`
 
 	// Configured video resolution
-	Resolution VideoResolution `xml:"http://www.onvif.org/ver10/media/wsdl Resolution,omitempty"`
+	Resolution VideoResolution `xml:"http://www.onvif.org/ver10/media/wsdl Resolution"`
 
 	// Relative value for the video quantizers and the quality of the video. A high value within supported quality range means higher quality
-	Quality float32 `xml:"http://www.onvif.org/ver10/schema Quality,omitempty"`
+	Quality float32 `xml:"http://www.onvif.org/ver10/schema Quality"`
 
 	// Optional element to configure rate control related parameters.
-	RateControl VideoRateControl `xml:"http://www.onvif.org/ver10/schema RateControl,omitempty"`
+	RateControl VideoRateControl `xml:"http://www.onvif.org/ver10/schema RateControl"`
 
 	// Optional element to configure Mpeg4 related parameters.
-	MPEG4 Mpeg4Configuration `xml:"http://www.onvif.org/ver10/schema MPEG4,omitempty"`
+	MPEG4 Mpeg4Configuration `xml:"http://www.onvif.org/ver10/schema MPEG4"`
 
 	// Optional element to configure H.264 related parameters.
-	H264 H264Configuration `xml:"http://www.onvif.org/ver10/schema H264,omitempty"`
+	H264 H264Configuration `xml:"http://www.onvif.org/ver10/schema H264"`
 
 	// Defines the multicast settings that could be used for video streaming.
-	Multicast MulticastConfiguration `xml:"http://www.onvif.org/ver10/schema Multicast,omitempty"`
+	Multicast MulticastConfiguration `xml:"http://www.onvif.org/ver10/schema Multicast"`
 
 	// The rtsp session timeout for the related video stream
-	SessionTimeout Duration `xml:"http://www.onvif.org/ver10/schema SessionTimeout,omitempty"`
+	SessionTimeout Duration `xml:"http://www.onvif.org/ver10/schema SessionTimeout"`
 
 	//
 	// A value of true indicates that frame rate is a fixed value rather than an upper limit,
@@ -3615,30 +3615,30 @@ type VideoEncoderConfiguration struct {
 	// configuration values such as bitrate.  Default is false.
 	//
 
-	GuaranteedFrameRate bool `xml:"http://www.onvif.org/ver10/media/wsdl GuaranteedFrameRate,attr,omitempty"`
+	GuaranteedFrameRate bool `xml:"http://www.onvif.org/ver10/media/wsdl GuaranteedFrameRate,attr"`
 }
 
 // VideoResolution type
 type VideoResolution struct {
 
 	// Number of the columns of the Video image.
-	Width int32 `xml:"http://www.onvif.org/ver10/schema Width,omitempty"`
+	Width int32 `xml:"http://www.onvif.org/ver10/schema Width"`
 
 	// Number of the lines of the Video image.
-	Height int32 `xml:"http://www.onvif.org/ver10/schema Height,omitempty"`
+	Height int32 `xml:"http://www.onvif.org/ver10/schema Height"`
 }
 
 // VideoRateControl type
 type VideoRateControl struct {
 
 	// Maximum output framerate in fps. If an EncodingInterval is provided the resulting encoded framerate will be reduced by the given factor.
-	FrameRateLimit int32 `xml:"http://www.onvif.org/ver10/schema FrameRateLimit,omitempty"`
+	FrameRateLimit int32 `xml:"http://www.onvif.org/ver10/schema FrameRateLimit"`
 
 	// Interval at which images are encoded and transmitted. (A value of 1 means that every frame is encoded, a value of 2 means that every 2nd frame is encoded ...)
-	EncodingInterval int32 `xml:"http://www.onvif.org/ver10/schema EncodingInterval,omitempty"`
+	EncodingInterval int32 `xml:"http://www.onvif.org/ver10/schema EncodingInterval"`
 
 	// the maximum output bitrate in kbps
-	BitrateLimit int32 `xml:"http://www.onvif.org/ver10/schema BitrateLimit,omitempty"`
+	BitrateLimit int32 `xml:"http://www.onvif.org/ver10/schema BitrateLimit"`
 }
 
 // Mpeg4Configuration type
@@ -3655,10 +3655,10 @@ type Mpeg4Configuration struct {
 type H264Configuration struct {
 
 	// Group of Video frames length. Determines typically the interval in which the I-Frames will be coded. An entry of 1 indicates I-Frames are continuously generated. An entry of 2 indicates that every 2nd image is an I-Frame, and 3 only every 3rd frame, etc. The frames in between are coded as P or B Frames.
-	GovLength int32 `xml:"http://www.onvif.org/ver10/schema GovLength,omitempty"`
+	GovLength int32 `xml:"http://www.onvif.org/ver10/schema GovLength"`
 
 	// the H.264 profile, either baseline, main, extended or high
-	H264Profile H264Profile `xml:"http://www.onvif.org/ver10/schema H264Profile,omitempty"`
+	H264Profile H264Profile `xml:"http://www.onvif.org/ver10/schema H264Profile"`
 }
 
 // VideoEncoderConfigurationOptions type
@@ -3676,7 +3676,7 @@ type VideoEncoderConfigurationOptions struct {
 	// Optional H.264 encoder settings ranges (See also Extension element).
 	H264 H264Options `xml:"http://www.onvif.org/ver10/schema H264,omitempty"`
 
-	Extension VideoEncoderOptionsExtension `xml:"http://www.onvif.org/ver10/schema Extension,omitempty"`
+	// Extension VideoEncoderOptionsExtension `xml:"http://www.onvif.org/ver10/schema Extension,omitempty"`
 
 	//
 	// Indicates the support for the GuaranteedFrameRate attribute on the VideoEncoderConfiguration element.
@@ -7397,9 +7397,10 @@ type ProfileStatusExtension struct {
 }
 
 // OSDReference type
-//type OSDReference struct {
-//	Value ReferenceToken
-//}
+//
+//	type OSDReference struct {
+//		Value ReferenceToken
+//	}
 type OSDReference ReferenceToken
 
 // OSDPosConfiguration type

@@ -7,10 +7,13 @@ import (
 	"crypto/tls"
 	"encoding/base64"
 	"encoding/xml"
+	"errors"
 	"fmt"
+	"io/ioutil"
 	"math/rand"
 	"net"
 	"net/http"
+	"strings"
 	"time"
 )
 
@@ -385,6 +388,12 @@ func (s *Client) call(ctx context.Context, xaddr string, soapAction string, requ
 		return err
 	}
 	defer res.Body.Close()
+
+	if res.StatusCode != 200 && strings.Contains(res.Header.Get("Content-Type"), "text/html") {
+		data, _ := ioutil.ReadAll(res.Body)
+		fmt.Println(string(data))
+		return errors.New(res.Status)
+	}
 
 	respEnvelope := new(SOAPEnvelope)
 	respEnvelope.Body = SOAPBody{Content: response}
