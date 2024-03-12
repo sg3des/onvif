@@ -3,14 +3,14 @@ package soap
 import (
 	"bytes"
 	"context"
+	"crypto/rand"
 	"crypto/sha1"
 	"crypto/tls"
 	"encoding/base64"
 	"encoding/xml"
 	"errors"
 	"fmt"
-	"io/ioutil"
-	"math/rand"
+	"io"
 	"net"
 	"net/http"
 	"strings"
@@ -195,7 +195,8 @@ func NewWSSSecurityHeader(user, pass string) *WSSSecurityHeader {
 	hdr.UsernameToken.Username = user
 
 	// Created
-	hdr.UsernameToken.Created.Value = time.Now().Format("2006-01-02T15:04:05.999") + "Z"
+	// hdr.UsernameToken.Created.Value = time.Now().Format("2006-01-02T15:04:05.999") + "Z"
+	hdr.UsernameToken.Created.Value = time.Now().Format(time.RFC3339)
 
 	// Nonce
 	b := make([]byte, 16)
@@ -390,7 +391,7 @@ func (s *Client) call(ctx context.Context, xaddr string, soapAction string, requ
 	defer res.Body.Close()
 
 	if res.StatusCode != 200 && strings.Contains(res.Header.Get("Content-Type"), "text/html") {
-		data, _ := ioutil.ReadAll(res.Body)
+		data, _ := io.ReadAll(res.Body)
 		fmt.Println(string(data))
 		return errors.New(res.Status)
 	}
