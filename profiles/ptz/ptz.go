@@ -3,8 +3,9 @@ package ptz
 import (
 	"context"
 	"encoding/xml"
-	"github.com/sg3des/onvif/soap"
 	"time"
+
+	"github.com/sg3des/onvif/soap"
 )
 
 // against "unused imports"

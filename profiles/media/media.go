@@ -1791,7 +1791,8 @@ type TopicExpressionType struct {
 
 // FilterType type
 type FilterType struct {
-	XMLName xml.Name `xml:"http://docs.oasis-open.org/wsn/b-2 Filter"`
+	// XMLName xml.Name `xml:"xmlns:http://docs.oasis-open.org/wsn/b-2 Filter"`
+	XMLName xml.Name `xml:"Filter"`
 }
 
 // SubscriptionPolicyType type
